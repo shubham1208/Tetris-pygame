@@ -1,6 +1,11 @@
 import pygame
 import random
 
+pygame.mixer.init()
+
+pygame.mixer.music.load('bgm.ogg')
+pygame.mixer.music.play(-1)
+
 # creating the data structure for pieces
 # setting up global vars
 # functions
@@ -181,7 +186,6 @@ def valid_space(shape, grid):
                 return False
     return True
 
-
 def check_lost(positions):
     pass
 
@@ -212,7 +216,7 @@ def draw_window(surface, grid):
     pygame.font.init()
     
     font = pygame.font.SysFont("comicsans", 60)
-    label = font.render("TETRIS", 1, (255, 255, 255))
+    label = font.render("TETRIS", 1, (255, 0, 0))
 
     surface.blit(label, (top_left_x + play_width/2 - (label.get_width()/2), 30))
 
@@ -220,7 +224,7 @@ def draw_window(surface, grid):
         for j in range(len(grid[i])):
             pygame.draw.rect(surface, grid[i][j], (top_left_x + j*block_size, top_left_y + j*block_size, block_size, block_size), 0)
 
-    pygame.draw.rect(surface, (255, 0, 0), (top_left_x, top_left_y, play_width, play_height), 4)
+    pygame.draw.rect(surface, (255, 255, 255), (top_left_x, top_left_y, play_width, play_height), 4)
 
     draw_grid(surface, grid)
     pygame.display.update()
@@ -260,6 +264,7 @@ def main(win):
                         current_piece -=1
 
         draw_window(win, grid)
+        
 
 def main_menu(win):
     main(win)
