@@ -7,11 +7,6 @@ shapes: S, Z, I, O, J, L, T
 represented in order by 0 - 6
 """
 
-# pygame.mixer.init()
-# pygame.mixer.music.load("bgm.ogg")
-# pygame.mixer.music.play()
-
-
 pygame.font.init()
 
 # GLOBALS VARS
